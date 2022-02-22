@@ -7,7 +7,7 @@ if (isset($_POST['save'])){
     $name = $_POST['category'];
     $description = $_POST['description'];
     $query1 = "INSERT INTO user(nickname, user_name, last_name) 
-              VALUES('$nickname', '$user_name', '$lastname')";
+              VALUES('$nickname', '$user_name', '$last_name')";
             
     $query2 = "INSERT INTO category(name, description)   
               VALUES('$name', '$description')";
