@@ -1,0 +1,167 @@
+h1
+{
+    text-align: center;
+    color: ghostwhite;
+}
+
+.shorttext
+{
+    width: 30%;
+    font-size: medium;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.shorttext-login
+{
+    width: 45%;
+    font-size: medium;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.longtext
+{
+    width: 95%;
+    resize: none;
+    border-radius: 3px;
+}
+
+.register-form
+{
+    text-align: center;
+}
+
+.register, .admin
+{
+    color: white;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    height: auto;
+    border-style:solid;
+    border-color: rgba(98, 98, 192, 0.248);
+    border-width: "2px";
+    background-color: rgba(35, 35, 90, 0.679);
+}
+
+.login
+{
+    color: white;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    height: auto;
+    border-style:solid;
+    border-color: rgba(98, 98, 192, 0.248);
+    border-width: "2px";
+    background-color: rgba(35, 35, 90, 0.679);
+}
+
+.btn-submit
+{
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgb(179, 179, 180);
+}
+.btn-login
+{
+    color: ghostwhite;
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgb(85, 95, 177);
+}
+.btn-add
+{
+    color: ghostwhite;
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgb(85, 95, 177);
+}
+
+body
+{
+    background-color: black;
+}
+
+.radiobutton
+{
+    color: ghostwhite;
+}
+
+div
+{
+    position: relative;
+}
+
+.nav-link
+{   
+
+    border-style: solid;
+    border-color: rgba(98, 98, 192, 0.248);
+    background-color: rgb(179, 179, 180);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.li-item
+{
+    margin-right: 5%;
+    text-align: right;
+    list-style-type: none;
+    padding: "3px";
+}
+
+.dashboard
+{   
+    background-color: rgba(35, 35, 90, 0.679);
+    color: white;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    height: auto;
+    border-style:solid;
+    border-color: rgba(98, 98, 192, 0.248);
+    border-width: "2px";
+}
+
+.category-table
+{ 
+
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+table
+{
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: ghostwhite;
+    font-size: medium;
+}
+
+.btn-edit
+{
+    background-color: aqua;
+    color: black;
+    border-style: 1px solid;
+    border-color: rgb(179, 179, 180);
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.btn-delete
+{
+    background-color:darkred ;
+    color: ghostwhite;
+    border-style: 1px solid;
+    border-color: rgb(179, 179, 180);
+    font-weight: bold;
+    text-decoration: none;
+}
