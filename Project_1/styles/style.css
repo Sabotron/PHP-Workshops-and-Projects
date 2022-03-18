@@ -165,3 +165,10 @@ table
     font-weight: bold;
     text-decoration: none;
 }
+
+.message
+{
+    
+    color: gold;
+    background-color: black;
+}

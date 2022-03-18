@@ -4,7 +4,7 @@
 <section class="admin">
 <nav>
     <ul>
-        <li class="li-item"><a href="index.php" class="nav-link">Logout</a></li>
+        <li class="li-item"><a href="logout.php" class="nav-link">Logout</a></li>
     </ul>
 </nav>
     <h1>Administración</h1>
