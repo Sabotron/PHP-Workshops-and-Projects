@@ -15,6 +15,7 @@ function checkUser()
     $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
+  //  if ($result) {
         $user = mysqli_fetch_array($result);
         if ($user['usertype'] == 1) {
             session_start();
@@ -26,7 +27,10 @@ function checkUser()
             header('Location: admin.php');
         }
     } else {
+
         header('Location: index.php?error=user_not_found');
+        session_start();
+        session_destroy();
     }
     if (!$result) {
         header('Location: index.php?error=db_issue');

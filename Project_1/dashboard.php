@@ -1,7 +1,7 @@
 <?php 
     require("includes/header.php");
     require("functions.php"); 
-    checkSession()
+    clientSession();
 ?>
 <section class="dashboard">
 <nav>
@@ -10,11 +10,15 @@
     </ul>
 </nav>
     <h1>Dashboard</h1>
+    <div>
+        <h2 class="welcome"><?php echo welcomeUser(); ?></h2>
+    </div>
     <form action="addRSS.php" method="POST" class="dashboardr-form" role="form" name="dashboardForm">
         <br>
         <div>
             <input type="text" placeholder="Seleccionar Categoría" name="name" class="shorttext" required="true">
         </div>
+        <br>
         <div>
             <input type="text" placeholder="Link RSS" name="link-rss" class="shorttext" required="true">
         </div>

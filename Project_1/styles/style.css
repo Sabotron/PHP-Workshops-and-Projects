@@ -168,7 +168,12 @@ table
 
 .message
 {
-    
     color: gold;
     background-color: black;
+}
+
+.welcome
+{
+    color: deepskyblue;
+    background-color: ghostwhite;
 }

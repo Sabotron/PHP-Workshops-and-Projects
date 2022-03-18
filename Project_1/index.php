@@ -1,7 +1,8 @@
 <?php
     require("includes/header.php");
     require("functions.php");
-    errorHandler();
+session_start();
+session_destroy();
 ?>
 
 <section class="login">

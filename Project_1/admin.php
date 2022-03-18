@@ -1,5 +1,8 @@
-<?php require("includes/header.php"); ?>
-<?php require("functions.php"); ?>
+<?php 
+  require("includes/header.php"); 
+  require("functions.php"); 
+  adminSession();
+?>
 
 <section class="admin">
 <nav>
@@ -8,6 +11,9 @@
     </ul>
 </nav>
     <h1>Administración</h1>
+    <div>
+        <h2 class="welcome"><?php echo welcomeUser(); ?></h2>
+    </div>
     <form action="functions.php" method="POST" class="admin-form" role="form" name="adminForm">
         <br>
         <div>
