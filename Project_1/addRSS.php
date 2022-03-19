@@ -7,7 +7,7 @@ function addRSS()
 {
     $conn = connection();
     $name = $_POST[''];
-         $query = "INSERT INTO category(name)  
+         $query = "INSERT INTO source(name)  
           VALUES('$name') ";
     $result = mysqli_query($conn, $query);
     if (!$result) {

@@ -1,7 +1,6 @@
-crear selector para categorías.
-crear tabla rss(id, id_user, id_category, rss_link, timestamp, etc)...
+Crud categoría
+Crud Links
 recorrer XML y obtener info (img, title, description, )
-list with crud rss client
 my feed page
 logo
 test

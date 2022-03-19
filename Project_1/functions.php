@@ -4,14 +4,13 @@ function connection()
 {
     $conn = mysqli_connect('localhost', 'root', '', 'project_1');
     return $conn;
-};
+}
 //------------------------------------------------------------------------------------------
 function getCategory()
 {
     $conn = connection();
     $query = "SELECT * FROM category";
     $result = mysqli_query($conn, $query);
-    echo die($result);
     return $result;
 }
 //------------------------------------------------------------------------------------------
@@ -60,9 +59,9 @@ function adminSession()
 }
 //------------------------------------------------------------------------------------------
 function welcomeUser()
-{
+{ 
     $name = $_SESSION['user']['name'];
     $lastname = $_SESSION['user']['lastname'];
-    return ("Welcome " . $name . " " . $lastname."!");
+    return ("Bienvenid@ " . $name . " " . $lastname."!");
 }
 //------------------------------------------------------------------------------------------

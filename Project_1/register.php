@@ -18,7 +18,7 @@
     </div>
     <form action="addUser.php" method="POST" class="register-form" role="form" name="registerForm">
         <div>
-            <label for="">Tipo de Usuario:</label>
+            <label for="info">Tipo de Usuario:</label>
             <input type="radio" name="userType" class="radiobutton" value="1" checked="true">Cliente</input>
             <input type="radio" name="userType" class="radiobutton" value="2">Admin</input>
         </div>

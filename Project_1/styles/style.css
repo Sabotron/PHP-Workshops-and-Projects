@@ -20,6 +20,14 @@ h1
     border-radius: 3px;
 }
 
+.averagetext
+{
+    width: 70%;
+    font-size: medium;
+    height: 20px;
+    border-radius: 3px;
+}
+
 .longtext
 {
     width: 95%;
@@ -66,6 +74,7 @@ h1
     font-weight: bold;
     background-color: rgb(179, 179, 180);
 }
+
 .btn-login
 {
     color: ghostwhite;
@@ -73,6 +82,7 @@ h1
     font-weight: bold;
     background-color: rgb(85, 95, 177);
 }
+
 .btn-add
 {
     color: ghostwhite;
@@ -128,15 +138,6 @@ div
     border-width: "2px";
 }
 
-.category-table
-{ 
-
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
 table
 {
     border: 1px solid;
@@ -145,19 +146,27 @@ table
     font-size: medium;
 }
 
+.sourse-table, .category-table
+{ 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .btn-edit
 {
     background-color: aqua;
     color: black;
-    border-style: 1px solid;
+    border-style: 2px solid;
     border-color: rgb(179, 179, 180);
     font-weight: bold;
     text-decoration: none;
-
 }
 
 .btn-delete
 {
+
+
     background-color:darkred ;
     color: ghostwhite;
     border-style: 1px solid;
@@ -168,12 +177,22 @@ table
 
 .message
 {
+    width: 80%;
+    margin: auto;
     color: gold;
     background-color: black;
 }
 
 .welcome
 {
+    width: 80%;
+    margin: auto;
     color: deepskyblue;
     background-color: ghostwhite;
+}
+
+.a-link
+{
+
+    text-decoration: none;
 }
