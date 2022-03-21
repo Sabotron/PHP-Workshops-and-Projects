@@ -1,73 +1,80 @@
-<?php 
-    require("includes/header.php");
-    require("functions.php"); 
-    clientSession();
+<?php
+require("includes/header.php");
+require("functions.php");
+clientSession(); // functions.php
 ?>
+<!-- ------------------------------------------------------------------------------------------------------------------------------>
 <section class="dashboard">
-<nav>
+  <nav>
     <ul>
-        <li class="li-item"><a href="logout.php" class="nav-link">Logout</a></li>
+      <li class="li-item"><?php echo welcomeUser();// functions.php ?> </li>
+
+      <li class="li-item"><a href="logout.php" class="nav-link">Logout</a></li>
+
+      <li class="li-item"><a href="myFeed.php" class="nav-link">Mis Noticias</a></li>
     </ul>
-</nav>
-    <h1>Dashboard</h1>
+  </nav>
+  <h1>Dashboard</h1>
+
+  <!-- Formulario para agregar fuentes de noticias -------------------------------------------------------------------------------->
+  <form action="addSource.php" method="POST" class="dashboard" role="form" name="sourceForm"> 
+    <h3>Agregar Fuente RSS</h3> <br>
     <div>
-        <h2 class="welcome"><?php echo welcomeUser(); ?></h2>
-    </div>
-    <br>
-    <h2>Agregar Fuente RSS</h2>
-    <form action="addRSS.php" method="POST" class="dashboardr-form" role="form" name="dashboardForm">
-        <br>
-        <div>
-            <input type="text" placeholder="Nombre de la Fuente" name="source" class="averagetext" required="true">
-        </div>
-        <br>
-        <div class="category_select">
-            <select name="categories" id="category"> 
-            <?php
-        $result = getCategory();
-        while ($row = mysqli_fetch_array($result)) { 
-            echo("<option value=".$row['id'].">".$row['name']."</option>");        
-            }
-            ?>
-        </select>
-        </div>
-        <br>
-        <div>
-            <input type="text" placeholder="Link RSS" name="link-rss" class="averagetext" required="true">
-        </div>
-        <br>
-        <div>
-            <input type="submit" class="btn-addLink" name="addRss" value="Agregar Link"></input>
-        </div>
-        <br>
-        <div class="category-table">
-    <h3>Fuentes RSS</h3>
-    <table class="source-table">
+      <input type="text" placeholder="Nombre de la Fuente" name="name" class="averagetext" required="true">
+    </div> <br>
+    <div>
+      <input type="text" placeholder="Link RSS" name="rss" class="averagetext" required="true">
+    </div> <br>
+
+    <div class="selector">
+      <label for="selectorCategory">Seleccionar Categoría</label><br>
+      <select name="category" id="categories">
+        <?php
+        $result = getCategory();// functions.php
+        while ($rowCategory = mysqli_fetch_array($result)) {
+          echo ("<option value=" . $rowCategory['id'] . ">" . $rowCategory['name'] . "</option>");
+        }
+        ?>
+      </select><br>
+      <br>
+      <div>
+      <input type="submit" class="btn-edit" name="addSource" value="Crear"></input>
+    </div> 
+<!-- División que muestra una tabla con las fuentes creadas por el usuario --------------------------------------------------------->
+<div class="category-table">
+    <h3>Feeds Guardados</h3>
+    <table class="category-table">
       <tr>
-        <th>Nombre</th>
+        <th>Fuente</th>
         <th>Categoría</th>
         <th>Acciones</th>
       </tr>
       <tbody>
-        <?php
-        $conn = connection();
-        $query = "SELECT * FROM source WHERE userId =".$_SESSION['user']['id'];
-        $result = mysqli_query($conn, $query);
+        <?php // Recorre las fuentes creadas del usuarui y las muestra con botones de editar/eliminar.
+        $result = getSource();// functions.php
         while ($row = mysqli_fetch_array($result)) { ?>
           <tr>
             <td>
-              <?php echo $row['name'] ?>
+              <?php echo $row['source'] ?>
             </td>
             <td>
-              <a href="edit_category.php?id=<?php echo $row['id'] ?>" class="btn-edit">Editar</a>
-              <a href="delete_category.php?id=<?php echo $row['id'] ?>" class="btn-delete">Borrar</a>
+              <?php echo $row['category'] ?>
+            </td>
+            <td>
+              <a href="editSource.php?id=<?php echo $row['id'] ?>" class="a-link"> 
+                <input type="button" value="Editar" class="btn-edit"></input> 
+              </a>
+              <a href="deleteSource.php?id=<?php echo $row['id'] ?>" class="a-link">
+                <input type="button" value="Eliminar" class="btn-delete"></input> 
+              </a>
             </td>
           </tr>
         <?php } ?>
       </tbody>
     </table>
-    <br>
-  </div>
-    </form>
+<br>
+  </form> 
+ 
 </section>
-<?php require("includes/footer.php"); ?>
+<br>
+  <?php require("includes/footer.php"); ?>  

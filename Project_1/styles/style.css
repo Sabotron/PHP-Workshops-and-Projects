@@ -40,8 +40,7 @@ h1
     text-align: center;
 }
 
-.register, .admin
-{
+.register, .admin{
     color: white;
     text-align: center;
     margin-left: 20%;
@@ -110,27 +109,22 @@ div
 {   
 
     border-style: solid;
+    border-width: "1px";
     border-color: rgba(98, 98, 192, 0.248);
     background-color: rgb(179, 179, 180);
     font-weight: bold;
     text-decoration: none;
 }
 
-.li-item
-{
-    margin-right: 5%;
-    text-align: right;
-    list-style-type: none;
-    padding: "3px";
-}
 
-.dashboard
-{   
+.dashboard, .feeds
+{
     background-color: rgba(35, 35, 90, 0.679);
     color: white;
     text-align: center;
     margin-left: 20%;
     margin-right: 20%;
+    margin-bottom: 10%;
     width: 60%;
     height: auto;
     border-style:solid;
@@ -165,8 +159,6 @@ table
 
 .btn-delete
 {
-
-
     background-color:darkred ;
     color: ghostwhite;
     border-style: 1px solid;
@@ -177,22 +169,10 @@ table
 
 .message
 {
-    width: 80%;
     margin: auto;
     color: gold;
     background-color: black;
 }
 
-.welcome
-{
-    width: 80%;
-    margin: auto;
-    color: deepskyblue;
-    background-color: ghostwhite;
-}
 
-.a-link
-{
 
-    text-decoration: none;
-}

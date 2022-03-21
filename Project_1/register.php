@@ -1,7 +1,9 @@
 <?php 
+
+    // Recibe información del usuario para crear una cuenta.
     require("includes/header.php");
     require("functions.php"); 
-    errorHandler(); 
+    errorHandler(); // functions.php
 ?>
 
 <section class="register">
@@ -14,7 +16,7 @@
     <h1>Registro de Usuario</h1>
     <br>
     <div>
-        <h2 class="message"><?php echo (errorHandler()) ?></h2>
+        <h2 class="message"><?php echo (errorHandler()); //functions.php ?></h2>
     </div>
     <form action="addUser.php" method="POST" class="register-form" role="form" name="registerForm">
         <div>

@@ -1,4 +1,5 @@
 <?php require("functions.php");
+// Guarda nuevas categorías creadas por el administrador.
 
 if (isset($_POST['addCategory'])) {
     addCategory($_POST);
@@ -6,7 +7,7 @@ if (isset($_POST['addCategory'])) {
 
 function addCategory()
 {
-    $conn = connection();
+    $conn = connection();// functions.php
     $name = $_POST['name'];
          $query = "INSERT INTO category(name)  
           VALUES('$name') ";

@@ -1,7 +1,8 @@
 <?php
+// Monta una página del administrador, con espacios de texto que cargan valores existentes de una categoría para editarlos.
 require("functions.php");
-$conn = connection();
-
+$conn = connection();// functions.php
+// Carga los valores correspondientes al ID de la categoría.
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $query = "SELECT * FROM category 
@@ -14,7 +15,7 @@ if (isset($_GET['id'])) {
     }
 }
 
-
+// Actualiza la base de datos con los valores modificados, entregados con el método "POST".
 if (isset($_POST['updateCategory'])) {
     $id = $_GET['id'];    
     $name = $_POST['name'];
@@ -25,7 +26,7 @@ if (isset($_POST['updateCategory'])) {
 
 
 require("includes/header.php");
-adminSession();
+adminSession();// functions.php
 ?>
 <section class="admin">
   <h2>Editar Categoría</h2>

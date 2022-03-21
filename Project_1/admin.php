@@ -1,7 +1,7 @@
 <?php
 
 require("functions.php");
-adminSession();
+adminSession();// functions.php
 
 require("includes/header.php");
 ?>
@@ -14,10 +14,10 @@ require("includes/header.php");
   </nav>
   <h1>Administración</h1>
   <div>
-    <h2 class="welcome"><?php echo welcomeUser(); ?></h2>
+    <h2 class="welcome"><?php echo welcomeUser();// functions.php ?></h2>
   </div>
   <br>
-  <h2>Agregar Categoría</h2>
+  <h3>Agregar Categoría</h3>
   <form action="addCategory.php" method="POST" class="admin-form" role="form" name="adminForm">
     <br>
     <div>
@@ -37,17 +37,20 @@ require("includes/header.php");
         <th>Acciones</th>
       </tr>
       <tbody>
-        <?php
-        $result = getCategory();
-        while ($row = mysqli_fetch_array($result)) { ?>
+        <?php // Recorre las categorías existentes para montarlas en una tabla con botones de editar/eliminar.
+        $result = getCategory();// functions.php
+        while ($row = mysqli_fetch_array($result)) { ?> 
           <tr>
             <td>
-              <?php echo $row['name']?>
+              <?php echo $row['name'] ?>
             </td>
             <td>
-              <a href="editCategory.php?id=<?php echo $row['id'] ?>" class="a-link"> <input type="button" value="Editar" class="btn-edit"></input> </a>
-
-              <a href="deleteCategory.php?id=<?php echo $row['id'] ?>" class="a-link"><input type="button" value="Eliminar" class="btn-delete"></input> </a>
+              <a href="editCategory.php?id=<?php echo $row['id'] ?>" class="a-link"> 
+                <input type="button" value="Editar" class="btn-edit"></input> 
+              </a>
+              <a href="deleteCategory.php?id=<?php echo $row['id'] ?>" class="a-link">
+                <input type="button" value="Eliminar" class="btn-delete"></input> 
+              </a>
             </td>
           </tr>
         <?php } ?>
@@ -57,7 +60,5 @@ require("includes/header.php");
   </div>
 
 </section>
-
-
 
 <?php require("includes/footer.php"); ?>

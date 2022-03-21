@@ -1,11 +1,11 @@
 <?php require("functions.php");
-//  Assigns variables to the user information, then inserts it into database
+// Guarda nuevos usuarios al registrarse.
 if (isset($_POST['addUser'])) {
     addUser($_POST);
 }
 function addUser()
 {
-    $conn = connection();
+    $conn = connection();// functions.php
     $userType = $_POST['userType'];
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
@@ -18,10 +18,10 @@ function addUser()
     $postalCode = $_POST['postalCode'];
     $address1 = $_POST['address1'];
     $address2 = $_POST['address2'];
-    if (strlen($address2) < 1) {
+    if (strlen($address2) < 1) { // Cuando el usuario solo tiene una dirección, la 2nda se guarda como "none".
         $address2 = "none";
     }
-    if (strcmp($password, $passwordOk) == 0) { // Compares password in case of missmatch
+    if (strcmp($password, $passwordOk) == 0) { // Compara los passwords para validarlos.
 
         $query = "INSERT INTO user( usertype, name, lastname, telephone, 
                                  email, password, country, city, 
@@ -31,10 +31,10 @@ function addUser()
                                   '$postalCode', '$address1', '$address2') ";
         $result = mysqli_query($conn, $query);
         if (!$result) {
-            header("Location: register.php?error=db_issue");
+            header("Location: register.php?error=db_issue"); 
         }
-        header("Location: index.php"); // after submission, redirects to login page.
+        header("Location: index.php"); // Redirecciona al Login después del registro exitoso.
     } else {
-        header("Location: register.php?error=pswd_not_match"); // reloads the page in case of error.
+        header("Location: register.php?error=pswd_not_match"); 
     }
 }
