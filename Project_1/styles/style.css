@@ -1,3 +1,8 @@
+body
+{
+    background-color: black;
+}
+
 h1
 {
     text-align: center;
@@ -30,17 +35,15 @@ h1
 
 .longtext
 {
-    width: 95%;
+    width: 93%;
     resize: none;
     border-radius: 3px;
 }
 
-.register-form
-{
-    text-align: center;
-}
 
-.register, .admin{
+
+.register, .admin
+{
     color: white;
     text-align: center;
     margin-left: 20%;
@@ -90,10 +93,26 @@ h1
     background-color: rgb(85, 95, 177);
 }
 
-body
+.btn-edit
 {
-    background-color: black;
+    background-color: aqua;
+    color: black;
+    border-style: 2px solid;
+    border-color: rgb(179, 179, 180);
+    font-weight: bold;
+    text-decoration: none;
 }
+
+.btn-delete
+{
+    background-color:darkred ;
+    color: ghostwhite;
+    border-style: 1px solid;
+    border-color: rgb(179, 179, 180);
+    font-weight: bold;
+    text-decoration: none;
+}
+
 
 .radiobutton
 {
@@ -107,14 +126,26 @@ div
 
 .nav-link
 {   
-
+    text-align: right;
     border-style: solid;
     border-width: "1px";
     border-color: rgba(98, 98, 192, 0.248);
     background-color: rgb(179, 179, 180);
     font-weight: bold;
     text-decoration: none;
+    text-decoration-style: none;
 }
+
+ul li, a
+{
+    margin: 3%;
+    text-align: right;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration-style: none;
+    list-style: none;
+}
+
 
 
 .dashboard, .feeds
@@ -147,25 +178,7 @@ table
     margin-right: auto;
 }
 
-.btn-edit
-{
-    background-color: aqua;
-    color: black;
-    border-style: 2px solid;
-    border-color: rgb(179, 179, 180);
-    font-weight: bold;
-    text-decoration: none;
-}
 
-.btn-delete
-{
-    background-color:darkred ;
-    color: ghostwhite;
-    border-style: 1px solid;
-    border-color: rgb(179, 179, 180);
-    font-weight: bold;
-    text-decoration: none;
-}
 
 .message
 {
