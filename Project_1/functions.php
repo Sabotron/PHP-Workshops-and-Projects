@@ -91,8 +91,20 @@ function showCats()// Obtiene las categorías asignadas al ID del usuario.
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
-        // Crear mensaje error: pendiente
+       echo("Base de datos vacía");
     }
     return $result;
 }
 //------------------------------------------------------------------------------------------
+function userFeed()
+{
+   $conn = connection();
+   $userId = $_SESSION['user']['id'];
+   $query = "SELECT * FROM feed WHERE userId = '$userId'";
+   $result = mysqli_query($conn, $query);
+   if(!$result)
+    {
+       echo("Base de datos vacía");
+    }
+    return $result;
+}

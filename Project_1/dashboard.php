@@ -11,7 +11,7 @@ clientSession(); // functions.php
 
       <li class="li-item"><a href="logout.php" class="nav-link">Logout</a></li>
 
-      <li class="li-item"><a href="myFeed.php" class="nav-link">Mis Noticias</a></li>
+      <li class="li-item"><a href="myFeed.php" class="nav-link">Mis Feeds</a></li>
     </ul>
   </nav>
   <h1>Dashboard</h1>

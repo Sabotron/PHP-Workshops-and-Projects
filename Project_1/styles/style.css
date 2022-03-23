@@ -1,3 +1,11 @@
+:root{
+    --header_background: lightblue;
+    --blanquito: ghostwhite;
+    --gricillo: rgb(179, 179, 180);
+    --azulillo: rgba(98, 98, 192, 0.248);
+}
+
+
 body
 {
     background-color: black;
@@ -6,7 +14,7 @@ body
 h1
 {
     text-align: center;
-    color: ghostwhite;
+    color: var(--blanquito);
 }
 
 .shorttext
@@ -51,7 +59,7 @@ h1
     width: 60%;
     height: auto;
     border-style:solid;
-    border-color: rgba(98, 98, 192, 0.248);
+    border-color:var(--azulillo);
     border-width: "2px";
     background-color: rgba(35, 35, 90, 0.679);
 }
@@ -65,7 +73,7 @@ h1
     width: 40%;
     height: auto;
     border-style:solid;
-    border-color: rgba(98, 98, 192, 0.248);
+    border-color:var(--azulillo);
     border-width: "2px";
     background-color: rgba(35, 35, 90, 0.679);
 }
@@ -74,12 +82,12 @@ h1
 {
     font-size: medium;
     font-weight: bold;
-    background-color: rgb(179, 179, 180);
+    background-color: var(--gricillo);
 }
 
 .btn-login
 {
-    color: ghostwhite;
+    color: var(--blanquito);
     font-size: medium;
     font-weight: bold;
     background-color: rgb(85, 95, 177);
@@ -87,7 +95,7 @@ h1
 
 .btn-add
 {
-    color: ghostwhite;
+    color: var(--blanquito);
     font-size: medium;
     font-weight: bold;
     background-color: rgb(85, 95, 177);
@@ -97,8 +105,7 @@ h1
 {
     background-color: aqua;
     color: black;
-    border-style: 2px solid;
-    border-color: rgb(179, 179, 180);
+    border-color: var(--gricillo);
     font-weight: bold;
     text-decoration: none;
 }
@@ -106,9 +113,8 @@ h1
 .btn-delete
 {
     background-color:darkred ;
-    color: ghostwhite;
-    border-style: 1px solid;
-    border-color: rgb(179, 179, 180);
+    color: var(--blanquito);
+    border-color: var(--gricillo);
     font-weight: bold;
     text-decoration: none;
 }
@@ -116,21 +122,17 @@ h1
 
 .radiobutton
 {
-    color: ghostwhite;
+    color: var(--blanquito);
 }
 
-div
-{
-    position: relative;
-}
 
 .nav-link
 {   
     text-align: right;
     border-style: solid;
     border-width: "1px";
-    border-color: rgba(98, 98, 192, 0.248);
-    background-color: rgb(179, 179, 180);
+    border-color:var(--azulillo);
+    background-color: var(--gricillo);
     font-weight: bold;
     text-decoration: none;
     text-decoration-style: none;
@@ -148,7 +150,7 @@ ul li, a
 
 
 
-.dashboard, .feeds
+.dashboard
 {
     background-color: rgba(35, 35, 90, 0.679);
     color: white;
@@ -159,15 +161,28 @@ ul li, a
     width: 60%;
     height: auto;
     border-style:solid;
-    border-color: rgba(98, 98, 192, 0.248);
-    border-width: "2px";
+    border-color:var(--azulillo)
+
+}
+
+.myFeeds
+{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(35, 35, 90, 0.679);
+    color: white;
+    height: auto;
+    border-style:solid;
+    border-color:var(--azulillo);
+    text-align: center;
+    
 }
 
 table
 {
     border: 1px solid;
     border-radius: 3px;
-    border-color: ghostwhite;
+    border-color: var(--blanquito);
     font-size: medium;
 }
 
@@ -178,8 +193,6 @@ table
     margin-right: auto;
 }
 
-
-
 .message
 {
     margin: auto;
@@ -187,5 +200,22 @@ table
     background-color: black;
 }
 
+p 
+{
+    color: var(--blanquito);
+    text-align: center;
+}
 
+.div-feed
+{
+    border-style: solid;
+    border-color: var(--blanquito);
+    width: 100%;
+    margin: 0%;
+}
 
+.main-div
+{
+
+    display: block;
+}   
