@@ -1,8 +1,0 @@
-recorrer XML y obtener info (img, title, description, )
-my feed page
-logo
-test
-crear links para c/u
-
-
-
