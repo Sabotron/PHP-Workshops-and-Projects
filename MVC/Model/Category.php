@@ -14,7 +14,7 @@ class Category extends Conexion
         if (!$result) {
             die("Errorsote");
         }
-        header("Location: ../View/DashboardView.php");
+        header("Location: ../View/AdminView.php");
     }
 
     function getCategories() // Obtiene las fuentes asignadas al ID del usuario.
@@ -39,5 +39,6 @@ class Category extends Conexion
         $sql= "UPDATE category SET name = ? WHERE id = ?"; 
         $result= $this->connect()->prepare($sql);
         $result->execute([$name, $id]);   
+        header("Location: ../View/AdminView.php");
     }
 }

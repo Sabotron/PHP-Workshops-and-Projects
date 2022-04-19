@@ -1,8 +1,8 @@
 <?php
 require("../Includes/head.php");
+require("../Controller/ParentController.php");
 require("../Controller/DashboardController.php");
-//
-//clientSession(); // functions.php
+clientSession();
 ?>
 <div class="container">
   <div class="row">
@@ -21,6 +21,7 @@ require("../Controller/DashboardController.php");
         </ul>
         <div class="card-header">
           <h2 class="card-title">Dashboard</h2>
+          <br>
           <h4 class="card-subtitle">Agregar RSS</h4>
         </div>
         <div class="card-body">
@@ -28,7 +29,7 @@ require("../Controller/DashboardController.php");
           <form action="../Controller/DashboardController.php" method="POST">
             <input type="text" placeholder="Nombre de la Fuente" name="name" class="form-control mb-4" required="true">
             <input type="text" placeholder="Link RSS" name="rss" class="form-control mb-4" required="true">
-            <select class="custom-select custom-select-sm">
+            <select class="custom-select custom-select-sm" name="categoryId">
             <?php
               $categories = getCategories()->fetchAll();// functions.php
                foreach($categories as $category)
@@ -80,11 +81,5 @@ require("../Controller/DashboardController.php");
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 <?php require_once("../Includes/footer.php"); ?>

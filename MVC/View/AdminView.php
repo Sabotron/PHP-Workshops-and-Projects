@@ -1,8 +1,9 @@
 <?php
 require("../Includes/head.php");
 require("../Controller/AdminController.php");
+require("../Controller/ParentController.php");
 //
-//clientSession(); // functions.php
+adminSession(); // functions.php
 ?>
 <div class="container">
   <div class="row">
@@ -21,6 +22,7 @@ require("../Controller/AdminController.php");
         </ul>
         <div class="card-header">
           <h2 class="card-title">Administrador</h2>
+          <br>
           <h4 class="card-subtitle">Agregar Categoría</h4>
         </div>
         <div class="card-body">

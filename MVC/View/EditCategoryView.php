@@ -2,7 +2,6 @@
 require("../Includes/head.php");
 require_once("../Controller/CategoryController.php");
 $category = getCategory()->fetch();
-print_r($category);
 //
 //clientSession(); // functions.php
 ?>
@@ -23,15 +22,18 @@ print_r($category);
         </ul>
         <div class="card-header">
           <h2 class="card-title">Administrador</h2>
+          <br>
           <h4 class="card-subtitle">Editar Categoría</h4>
         </div>
         <div class="card-body">
           <!-- Formulario para agregar categorías -------------------------------------------------------------------------------->
           <form action="../Controller/CategoryController.php" method="POST">
-            <input type="text" placeholder="Nombre de la Categoría" name="name" class="form-control mb-4" required="true" value= <?php echo $category['name']?>
+            <input type="text" placeholder="Nombre de la Categoría" name="name" class="form-control mb-4" required="true" value= "<?php echo $category['name']?>">
+            <input type="hidden" name="id" class="" required="false" value= "<?php echo $category['id']?>">
+            
         </div>
         <div class="card-footer">
-          <input type="submit" class="btn btn-success" name="AddCategory" value="Editar"> </input>
+          <input type="submit" class="btn btn-success" name="UpdateCategory" value="Editar"> </input>
           </form>
         </div>
       </div>

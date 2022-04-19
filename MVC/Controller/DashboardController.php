@@ -8,15 +8,14 @@
 if (isset($_POST['AddRss'])) {
     session_start();
     $intUserId = $_SESSION['user']['id'];
-    $strName = $_POST['email'];
-    $strRss = $_POST['password'];
-    $intCategoryId = $_POST['password'];
+    $strName = $_POST['name'];
+    $strRss = $_POST['rss'];
+    $intCategoryId = $_POST['categoryId'];
     $objRss->addSource ($strName, $strRss, $intCategoryId, $intUserId);
 }
 
 function getSources()
 {
-    session_start();
     $intUserId = $_SESSION['user']['id'];
     $objRss = new RSS();
     $result = $objRss->getSources($intUserId);

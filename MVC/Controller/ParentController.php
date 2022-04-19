@@ -32,7 +32,7 @@ function clientSession() // Verifica que un usuario tipo "cliente" sea el que ac
     session_start();
     $user = $_SESSION['user'];
     if ($user['usertype'] != 1) {
-        header('Location: index.php?error=forced_logout'); // Termina la sesión en caso de mala intención.
+        header('Location: ../View/LoginVista.php?error=forced_logout'); // Termina la sesión en caso de mala intención.
     }
 }
 //------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ function adminSession() // Verifica que un "administrador" sea el que accede a o
     session_start();
     $user = $_SESSION['user'];
     if ($user['usertype'] != 2) {
-        header('Location: index.php?error=forced_logout'); // Termina la sesión en caso de mala intención.
+        header('Location: ../View/LoginVista.php?error=forced_logout'); // Termina la sesión en caso de mala intención.
     }
 }
 //------------------------------------------------------------------------------------------
@@ -51,4 +51,13 @@ function welcomeUser() // Mensaje de bienvenida con el nombre-apellido del usuar
     $lastname = $_SESSION['user']['lastname'];
     return ("Bienvenid@ " . $name . " " . $lastname."!");
 }
+//------------------------------------------------------------------------------------------
+function logout()
+{
+session_start();
+session_destroy();
+header('Location: index.php');
+}
+
+
 ?>
