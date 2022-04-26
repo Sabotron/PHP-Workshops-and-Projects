@@ -1,9 +1,9 @@
 <?php
-require("../Includes/head.php");
+require_once("../Includes/head.php");
 require_once("../Controller/CategoryController.php");
+require_once("../Controller/ParentController.php");
 $category = getCategory()->fetch();
-//
-//clientSession(); // functions.php
+clientSession();
 ?>
 <div class="container">
   <div class="row">

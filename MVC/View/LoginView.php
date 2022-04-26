@@ -1,4 +1,5 @@
 <?php
+require_once("../Controller/ParentController.php");
 require_once("../Controller/LoginController.php");
 require_once("../Includes/head.php");
 

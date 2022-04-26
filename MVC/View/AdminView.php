@@ -2,8 +2,9 @@
 require("../Includes/head.php");
 require("../Controller/AdminController.php");
 require("../Controller/ParentController.php");
-//
-adminSession(); // functions.php
+require("../Controller/CategoryController.php");
+
+adminSession();
 ?>
 <div class="container">
   <div class="row">
@@ -17,7 +18,7 @@ adminSession(); // functions.php
             <a class="nav-link active" href="#">Mis Feeds</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Logout</a>
+            <a class="nav-link active" href="../Controller/ParentController.php?logout">Logout</a>
           </li>
         </ul>
         <div class="card-header">
@@ -56,13 +57,14 @@ adminSession(); // functions.php
               <th> Acciones </th>
             </tr>
             <?php // Recorre las fuentes creadas del usuarui y las muestra con botones de editar/eliminar.
+            
             $categories = getCategories()->fetchAll(); // functions.php
             foreach ($categories as $category) { ?>
               <tr>
                 <td><?php echo $category['id'] ?></td>
                 <td><?php echo $category['name'] ?></td>
                 <td><a href="../View/EditCategoryView.php?id=<?php echo $category['id'] ?>" class="btn btn-success"> Editar </a>
-                  <a href="deleteCategory.php?id=<?php echo $category['id'] ?>" class="btn btn-danger"> Eliminar </a>
+                  <a href="../Controller/CategoryController.php?del=<?php echo $category['id'] ?>"   class="btn btn-danger"> Eliminar </a>
                 </td>
               </tr>
             <?php } ?>

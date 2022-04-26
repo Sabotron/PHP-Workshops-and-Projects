@@ -64,8 +64,8 @@ clientSession();
               <th> Categoría </th>
               <th> Acciones </th>
             </tr>
-            <?php // Recorre las fuentes creadas del usuarui y las muestra con botones de editar/eliminar.
-            $results = getSources()->fetchAll(); // functions.php
+            <?php // Recorre las fuentes creadas del usuario y las muestra con botones de editar/eliminar.
+            $results = getSources()->fetchAll();
             foreach ($results as $result) { ?>
               <tr>
                 <td><?php echo $result['source'] ?></td>
