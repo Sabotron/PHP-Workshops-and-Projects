@@ -6,8 +6,13 @@ if (isset($_POST['UpdateCategory'])) {
     $id = $_POST['id'];
     $strName = $_POST['name'];
     $objCategory->updateCategory($strName, $id);
-    Header("../View/AdminView");
 }
+
+if (isset($_GET['del'])) {
+    $id = $_GET['del'];
+    $objCategory->deleteCategory($id);
+}   
+
 
 function getCategory(){
     $objCategory = new Category();
@@ -16,3 +21,5 @@ function getCategory(){
     return  $result;
     }
   
+
+ 

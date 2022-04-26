@@ -1,5 +1,15 @@
 <?php
 
+if (isset($_GET['logout']))
+{
+    logout();
+}
+
+if(isset($_GET['error']))
+{
+    errorHandler();
+}
+
 //------------------------------------------------------------------------------------------
 function errorHandler() // Imprime un mensaje de error en diferentes circunstancias.
 {
@@ -56,7 +66,7 @@ function logout()
 {
 session_start();
 session_destroy();
-header('Location: index.php');
+header('Location: ../index.php');
 }
 
 

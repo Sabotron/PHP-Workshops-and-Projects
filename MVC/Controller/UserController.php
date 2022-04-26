@@ -1,17 +1,36 @@
 <?php
-    require_once("View/UserView.php");
-    class UserController extends UserView
-    {
-        public function showUserView($nombre)
-        {
-            $this->showUser($nombre);
-        }
+    require_once("../Model/User.php");
+    $objUser = new User();
 
-        public function createUser(string $nombre, int $telefono, string $email)
-        {
-            $this->setUser( $nombre, $telefono, $email);
-        }
+if (isset($_POST['UpdateUser'])) {
+    $id = $_POST['id'];
+    $strName = $_POST['name'];
+    $strLastname = $_POST['lastname'];
+    $strTelephone = $_POST['telephone'];
+    $strEmail = $_POST['email'];
+    $strPassword = $_POST['pswd'];
+    $strConfirm = $_POST['confirmPswd'];
+    $strCountry = $_POST['country'];
+    $strCity = $_POST['city'];
+    $intPostalCode = $_POST['postalCode'];
+    $strAddress1 = $_POST['address1'];
+    $strAddress2 = $_POST['address2'];
+    $objUser->updateUser($name, $lastname, $telephone, $email, $password, 
+        $country, $city, $postalCode, $address1, $address2, $id);
+}
+
+if (isset($_GET['del'])) {
+    $id = $_GET['del'];
+    $objUser->deleteUser($id);
+}   
 
 
-    }// End of class Userview
-?>
+function getUser(){
+    $objUser = new User();
+    $id = $_GET['id'];
+    $result = $objUser->getUser($id);
+    return  $result;
+}
+  
+
+ 
