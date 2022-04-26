@@ -41,4 +41,19 @@ class Category extends Conexion
         $result->execute([$name, $id]);   
         header("Location: ../View/AdminView.php");
     }
+
+
+    function deleteCategory(int $id){
+
+        $sql1= "DELETE FROM category WHERE id = ?";
+        $result= $this->connect()->prepare($sql1);
+        $result->execute([$id]);   
+        $sql2 = "DELETE FROM source WHERE categoryId = ?";
+        $result= $this->connect()->prepare($sql2);
+        $result->execute([$id]);   
+        $sql3 = "DELETE FROM feed WHERE categoryId = ?";
+        $result= $this->connect()->prepare($sql3);
+        $result->execute([$id]);  
+        header("Location: ../View/AdminView.php");
+    }
 }
