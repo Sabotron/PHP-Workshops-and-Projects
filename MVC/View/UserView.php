@@ -1,9 +1,9 @@
 <?php
 require_once("../Controller/ParentController.php");
-require_once("../Controller/RegisterController.php");
-require_once("../Includes/head.php");
+require_once("../Controller/UserController.php");
 // Recibe información del usuario para crear una cuenta.
-errorHandler(); // functions.php
+errorHandler(); 
+require_once("../Includes/head.php");
 ?>
 
 
@@ -13,27 +13,27 @@ errorHandler(); // functions.php
       <div class="card mt-5">
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link active" href="../Controller/ParentController.php?logout">Login</a>
+            <a class="nav-link active" href="../Controller/ParentController.php?logout"> Login </a>
           </li>
         </ul>
         <div class="card-header">
-          <h2 class="card-title">Registrar Usuario</h2>
+          <h2 class="card-title text-center"> Registrar Usuario </h2>
           <br>
-          <h4 class="card-subtitle">Ingresar Información</h4>
+          <h4 class="card-subtitle"> Ingresar Información </h4>
         </div>
         <div class="card-body">
-          <form action="../Controller/RegisterController.php" method="POST">
+          <form action="../Controller/UserController.php" method="POST">
             <div class="form-check form-check-inline">
-              <label class="form-check-label" for="inlineRadio1">Tipo de cuenta: </label>
+              <label class="form-check-label" for="inlineRadio1"> Tipo de cuenta: </label>
             </div>
 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="1" checked="true">
-              <label class="form-check-label" for="inlineRadio1">Usuario</label>
+              <label class="form-check-label" for="inlineRadio1"> Usuario </label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="2">
-              <label class="form-check-label" for="inlineRadio1">Admin</label>
+              <label class="form-check-label" for="inlineRadio1"> Admin </label>
             </div>
 
             <input type="text" placeholder="Nombre " name="name" class="form-control mb-4" required="true">
@@ -62,4 +62,4 @@ errorHandler(); // functions.php
 </div>
 <!------------------------------------------------------------------------------------->
 
-<?php require("includes/footer.php"); ?>
+<?php require("../Includes/footer.php"); ?>

@@ -1,28 +1,28 @@
 <?php
-require("../Includes/head.php");
-require("../Controller/AdminController.php");
-require("../Controller/ParentController.php");
-require("../Controller/CategoryController.php");
 
+require_once("../Controller/AdminController.php");
+require_once("../Controller/ParentController.php");
+require_once("../Controller/CategoryController.php");
 adminSession();
+require_once("../Includes/head.php");
 ?>
 <div class="container">
   <div class="row">
-    <div class="col-lg-10 m-auto">
+    <div class="col-lg-8 m-auto">
       <div class="card mt-5">
         <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link active" href="register.php">Bienvenido</a>
+        <li class="nav-item">
+            <p class="nav-link active" name=welcome >Bienvenido <?php echo $_SESSION['user']['name'] ?> </p>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Mis Feeds</a>
+            <a class="nav-link active" href="RegisterView.php">Usuarios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="../Controller/ParentController.php?logout">Logout</a>
           </li>
         </ul>
         <div class="card-header">
-          <h2 class="card-title">Administrador</h2>
+          <h2 class="card-title text-center">Administrador</h2>
           <br>
           <h4 class="card-subtitle">Agregar Categoría</h4>
         </div>
@@ -42,7 +42,7 @@ adminSession();
 <!----------------------------------------------------------------------------------------------------------------------------------------->
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-lg-8 m-auto">
       <div class="card mt-5">
         <div class="card-header">
           <h2 class="text-center"> Categorías Agregadas </h2>
