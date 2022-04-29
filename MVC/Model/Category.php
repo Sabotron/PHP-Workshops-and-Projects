@@ -19,7 +19,7 @@ class Category extends Conexion
 
     function getCategories() // Obtiene las fuentes asignadas al ID del usuario.
     {
-        $sql= "SELECT * FROM category"; 
+        $sql= "SELECT * FROM category ORDER BY name ASC"; 
         $result= $this->connect()->prepare($sql);
         $result->execute();   
         return $result;
@@ -33,6 +33,19 @@ class Category extends Conexion
         $result->execute([$id]);   
         return $result;
     }
+
+    function getUserCategories(int $uid)// Obtiene las categorías asignadas al ID del usuario.
+    { 
+        $sql = "SELECT DISTINCT c.id, c.name
+                    FROM source s
+                    INNER JOIN category c
+                    ON s.categoryId = c.id 
+                    WHERE s.userId = ? ";
+        $result= $this->connect()->prepare($sql);
+        $result->execute([$uid]);
+        return $result;
+    }
+
 
     function updateCategory(string $name, int $id) // Obtiene las fuentes asignadas al ID del usuario.
     {
@@ -56,4 +69,5 @@ class Category extends Conexion
         $result->execute([$id]);  
         header("Location: ../View/AdminView.php");
     }
+
 }

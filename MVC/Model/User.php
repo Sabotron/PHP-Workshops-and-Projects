@@ -61,11 +61,11 @@ class User extends Conexion
     string $password, string $country, string $city, int $postalCode, string $address1, string $address2) // Obtiene las fuentes asignadas al ID del usuario.
     {
         $sql= "UPDATE user SET name = ?, lastname = ?, telephone = ?, email = ?,
-        password = ?, country = ?, city = ?, postalCode = ?, address1 = ?, address2 = ?,  WHERE id = ?"; 
+        password = ?, country = ?, city = ?, postalCode = ?, address1 = ?, address2 = ?  WHERE id = ?"; 
         $result= $this->connect()->prepare($sql);
         $result->execute([ $name, $lastname, $telephone, $email, $password, 
         $country, $city, $postalCode, $address1, $address2, $id]);   
-        header("Location: ../View/AdminView.php");
+        header("Location: ../View/RegisterView.php");
     }
 
 
@@ -81,7 +81,7 @@ class User extends Conexion
         $sql3 = "DELETE FROM feed WHERE UserId = ?";
         $result= $this->connect()->prepare($sql3);
         $result->execute([$id]);   
-        header("Location: ../View/AdminView.php");
+        header("Location: ../View/RegisterView.php");
 
     }
 

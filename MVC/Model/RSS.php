@@ -24,6 +24,15 @@ class RSS extends Conexion
         header("Location: ../View/DashboardView.php");
     }
 
+
+    function updtRss(int $id, string $name, string $rss,int $categoryId)
+    {
+        $sql = "UPDATE source SET name = ?, rss = ?, categoryId = ? WHERE id = ?";
+        $result= $this->connect()->prepare($sql);
+        $result->execute([$name, $rss, $categoryId, $id]);   
+        header("Location: ../View/DashboardView.php");
+    }
+
     function getSources($userId) // Obtiene las fuentes asignadas al ID del usuario.
     {
         $sql= "SELECT s.id as id, s.name as source, c.name as category 
@@ -35,4 +44,14 @@ class RSS extends Conexion
         $result->execute([$userId]);   
         return $result;
     }
+
+
+    function getSource($id) // Obtiene las fuentes asignadas al ID del usuario.
+    {
+        $sql= "SELECT * FROM source WHERE id = ? "; 
+        $result= $this->connect()->prepare($sql);
+        $result->execute([$id]);   
+        return $result;
+    }
 }
+
