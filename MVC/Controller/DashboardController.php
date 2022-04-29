@@ -14,11 +14,27 @@ if (isset($_POST['AddRss'])) {
     $objRss->addSource ($strName, $strRss, $intCategoryId, $intUserId);
 }
 
+if (isset($_POST['updtRss'])) {
+    $intId = $_POST['id'];
+    $strName = $_POST['name'];
+    $strRss = $_POST['rss'];
+    $intCategoryId = $_POST['categoryId'];
+    $objRss->updtRSS ($intId, $strName, $strRss, $intCategoryId );
+}
+
 function getSources()
 {
     $intUserId = $_SESSION['user']['id'];
     $objRss = new RSS();
     $result = $objRss->getSources($intUserId);
+    return $result;
+}
+
+function getSource()
+{
+    $id = $_GET['id'];
+    $objRss = new RSS();
+    $result = $objRss->getSource($id);
     return $result;
 }
 
