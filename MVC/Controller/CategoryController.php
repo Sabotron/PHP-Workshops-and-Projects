@@ -1,6 +1,6 @@
 <?php
-    require_once("../Model/Category.php");
-    $objCategory = new Category();
+require_once("../Model/Category.php");
+$objCategory = new Category();
 
 if (isset($_POST['UpdateCategory'])) {
     $id = $_POST['id'];
@@ -8,18 +8,33 @@ if (isset($_POST['UpdateCategory'])) {
     $objCategory->updateCategory($strName, $id);
 }
 
-if (isset($_GET['del'])) {
+if (isset($_GET['del'])) 
+{
     $id = $_GET['del'];
     $objCategory->deleteCategory($id);
-}   
+}
 
-
-function getCategory(){
+function getFilteredCategory()
+{
+    $id = $_GET['filter'];
     $objCategory = new Category();
-    $id = $_GET['id'];
     $result = $objCategory->getCategory($id);
     return  $result;
-    }
-  
+}
 
- 
+function getCategory()
+{
+    $id = $_GET['id'];
+    $objCategory = new Category();
+    $result = $objCategory->getCategory($id);
+    return  $result;
+}
+
+
+function UserCategories()
+{
+    $objCategory = new Category();
+    $uid = $_SESSION['user']['id'];
+    $result = $objCategory->getUserCategories($uid);
+    return  $result;
+}
