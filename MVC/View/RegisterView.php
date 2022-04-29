@@ -3,7 +3,7 @@ require_once("../Controller/ParentController.php");
 require_once("../Controller/UserController.php");
 // Recibe información del usuario para crear una cuenta.
 adminSession();
-errorHandler(); // functions.php
+errorHandler();
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -60,4 +60,6 @@ require_once("../Includes/head.php");
     </div>
 </div>
 
-<?php require_once("../Includes/footer.php"); ?>
+<!------------------------------------------------------------------------------------->
+
+<?php require("../Includes/footer.php"); ?>

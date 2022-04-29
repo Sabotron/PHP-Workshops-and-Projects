@@ -83,4 +83,6 @@ require_once("../Includes/head.php");
   </div>
 </div>
 
-<?php require_once("../Includes/footer.php"); ?>
+<!------------------------------------------------------------------------------------->
+
+<?php require("../Includes/footer.php"); ?>

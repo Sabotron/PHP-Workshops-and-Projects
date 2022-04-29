@@ -4,6 +4,8 @@ require_once("../Controller/ParentController.php");
 require_once("../Controller/FeedController.php");
 require_once("../Controller/CategoryController.php");
 clientSession(); // Verifica que el usuario sea tipo "cliente"
+$feeds = getFilteredFeeds()->fetchAll();
+$category = getFilteredCategory()->fetch();
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -18,25 +20,18 @@ require_once("../Includes/head.php");
             <a class="nav-link active" href="DashboardView.php">Dashboard</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" href="FeedView.php"> Mis Feeds </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" href="../index.php">Logout</a>
           </li>
         </ul>
         <div class="card-header">
-          <h2 class="card-title text-center"> Mis Feeds </h2>
+          <h2 class="card-title text-center"> Mis Feeds / <?php echo $category['name']?> </h2>
         </div>
         <div class="card-body">
-          <div class="text-center">
-         <?php
-            $categories = UserCategories();
-            foreach ($categories as $category) 
-            { 
-              ?>
-          <a href="../View/FeedFilterView.php?filter=<?php echo $category['id'] ?>" class="btn btn-light" ><?php echo $category['name'] ?></a>    
-         <?php  }?>
-          </div>
           <div class="row row-cols-1 row-cols-3 ">
             <?php
-            $feeds = getFeeds()->fetchAll();
             foreach ($feeds as $feed) {
               if ($feed['img'] == "none") {
                 $img = "feed.png";

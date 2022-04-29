@@ -6,7 +6,6 @@ errorHandler();
 require_once("../Includes/head.php");
 ?>
 
-
 <div class="container">
   <div class="row">
     <div class="col-lg-10 m-auto">
