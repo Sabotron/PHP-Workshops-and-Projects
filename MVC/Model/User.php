@@ -15,9 +15,19 @@ class User extends Conexion
     private $strAddress1;
     private $strAddress2;
 
-    function addUser(int $userType, string $name, string $lastname, string $telephone, string $email, 
-    string $password, string $country, string $city, int $postalCode, string $address1, string $address2)
-    {
+    function addUser(
+        int $userType,
+        string $name,
+        string $lastname,
+        string $telephone,
+        string $email,
+        string $password,
+        string $country,
+        string $city,
+        int $postalCode,
+        string $address1,
+        string $address2
+    ) {
         $sql = "INSERT INTO user(userType, name, lastname, telephone, email,
         password, country, city, postalCode, address1, address2)  
         VALUES(?,?,?,?,?,?,?,?,?,?,?)";
@@ -32,39 +42,54 @@ class User extends Conexion
         $this->intPostalCode = $postalCode;
         $this->strAddress1 = $address1;
         $this->strAddress2 = $address2;
-        $result= $this->connect()->prepare($sql);
-        $result->execute([$userType, $name, $lastname, $telephone, $email, $password, 
-         $country, $city, $postalCode, $address1, $address2]);
+        $result = $this->connect()->prepare($sql);
+        $result->execute([
+            $userType, $name, $lastname, $telephone, $email, $password,
+            $country, $city, $postalCode, $address1, $address2
+        ]);
         if (!$result) {
             die("Errorsote");
         }
-        header("Location: ../index.php");
+
     }
 
     function getUser($id) // Obtiene las fuentes asignadas al ID del usuario.
     {
-        $sql= "SELECT * FROM user WHERE id = ? "; 
-        $result= $this->connect()->prepare($sql);
-        $result->execute([$id]);   
+        $sql = "SELECT * FROM user WHERE id = ? ";
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$id]);
         return $result;
     }
 
     function getUsers() // Obtiene las fuentes asignadas al ID del usuario.
     {
-        $sql= "SELECT * FROM user"; 
-        $result= $this->connect()->prepare($sql);
-        $result->execute();   
+        $sql = "SELECT * FROM user";
+        $result = $this->connect()->prepare($sql);
+        $result->execute();
         return $result;
     }
 
-    function updateUser(int $id, string $name, string $lastname, string $telephone, string $email, 
-    string $password, string $country, string $city, int $postalCode, string $address1, string $address2) // Obtiene las fuentes asignadas al ID del usuario.
+    function updateUser(
+        int $id,
+        string $name,
+        string $lastname,
+        string $telephone,
+        string $email,
+        string $password,
+        string $country,
+        string $city,
+        int $postalCode,
+        string $address1,
+        string $address2
+    ) // Obtiene las fuentes asignadas al ID del usuario.
     {
-        $sql= "UPDATE user SET name = ?, lastname = ?, telephone = ?, email = ?,
-        password = ?, country = ?, city = ?, postalCode = ?, address1 = ?, address2 = ?  WHERE id = ?"; 
-        $result= $this->connect()->prepare($sql);
-        $result->execute([ $name, $lastname, $telephone, $email, $password, 
-        $country, $city, $postalCode, $address1, $address2, $id]);   
+        $sql = "UPDATE user SET name = ?, lastname = ?, telephone = ?, email = ?,
+        password = ?, country = ?, city = ?, postalCode = ?, address1 = ?, address2 = ?  WHERE id = ?";
+        $result = $this->connect()->prepare($sql);
+        $result->execute([
+            $name, $lastname, $telephone, $email, $password,
+            $country, $city, $postalCode, $address1, $address2, $id
+        ]);
         header("Location: ../View/RegisterView.php");
     }
 
@@ -72,18 +97,31 @@ class User extends Conexion
     function deleteUser(int $id)
     {
 
-        $sql1= "DELETE FROM user WHERE id = ?";
-        $result= $this->connect()->prepare($sql1);
-        $result->execute([$id]);   
+        $sql1 = "DELETE FROM user WHERE id = ?";
+        $result = $this->connect()->prepare($sql1);
+        $result->execute([$id]);
         $sql2 = "DELETE FROM source WHERE UserId = ?";
-        $result= $this->connect()->prepare($sql2);
-        $result->execute([$id]);   
+        $result = $this->connect()->prepare($sql2);
+        $result->execute([$id]);
         $sql3 = "DELETE FROM feed WHERE UserId = ?";
-        $result= $this->connect()->prepare($sql3);
-        $result->execute([$id]);   
+        $result = $this->connect()->prepare($sql3);
+        $result->execute([$id]);
         header("Location: ../View/RegisterView.php");
-
     }
 
+    function mailUser(string $to, string $user, string $password)
+    {
+        $tittle = "Registro Exitoso";
+        $message = "Estimad@ $user,  \n\nGracias por registrarse en nuestra plataforma.
+            \nIngrese su email y su password \"$password\" para acceder a su perfil. 
+            \nSaludos cordiales, \n\nSabotronics.Inc ";
+        $from = "From: sabotronics@gmail.com";
 
+        if (mail($to, $tittle, $message, $from)) {
+            header("Location: ../index.php");
+        } else {
+            echo "Error durante el envío de correo :(";
+            //die();
+        }
+    }
 }
