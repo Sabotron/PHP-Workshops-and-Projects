@@ -62,7 +62,9 @@ if (isset($_POST['AddUser'])) {
             $strAddress1,
             $strAddress2
         );
-    }
+        
+        $objUser->mailUser($strEmail, $strName, $strPassword);
+    } 
 }
 
 
@@ -85,3 +87,4 @@ function getUser()
     $result = $objUser->getUser($id);
     return  $result;
 }
+
