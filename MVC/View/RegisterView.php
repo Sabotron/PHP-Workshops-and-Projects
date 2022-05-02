@@ -1,9 +1,9 @@
 <?php
 require_once("../Controller/ParentController.php");
 require_once("../Controller/UserController.php");
-// Recibe información del usuario para crear una cuenta.
-adminSession();
-errorHandler();
+ $users = getUsers()->fetchAll(); // recorre todos los usuarios almacenados en la base de datos
+adminSession(); // verifica que el usuario sea administrador
+
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -12,7 +12,7 @@ require_once("../Includes/head.php");
             <div class="card mt-5">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <p class="nav-link active" name=welcome>Usuario: <?php echo $_SESSION['user']['name'] ?> </p>
+                        <p class="nav-link active" name=welcome>Usuari@: <?php echo $_SESSION['user']['name'] ?> </p>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="AdminView.php">Administración</a>
@@ -22,11 +22,12 @@ require_once("../Includes/head.php");
                     </li>
                 </ul>
                 <div class="card-header">
-                    <h2 class="card-tittle text-center"> Usuarios Registrados </h2>
+                    <div>
+                    <?php echo errorHandler();  // función que retorna mensaje en caso de error ?> 
+                    </div>
+                    <h2 class="card-tittle text-center"> Usuari@s Registrad@s </h2>
                 </div>
                 <div class="card-body">
-                    <?php //  $db -> display_message(); 
-                    ?>
                     <table class="table table-bordered">
                         <tr>
                             <th> ID </th>
@@ -37,9 +38,7 @@ require_once("../Includes/head.php");
                             <th> Password </th>
                             <th> Acciones </th>
                         </tr>
-                        <?php // Recorre los usuarios y las muestra con botones para editar/eliminar.
-
-                        $users = getUsers()->fetchAll(); // functions.php
+                        <?php // Recorre los usuarios y las muestra con botones para editar/eliminar.                     
                         foreach ($users as $user) { ?>
                             <tr>
                                 <td><?php echo $user['id'] ?></td>

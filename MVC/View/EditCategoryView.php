@@ -2,8 +2,8 @@
 
 require_once("../Controller/CategoryController.php");
 require_once("../Controller/ParentController.php");
-AdminSession();
-$category = getCategory()->fetch();
+AdminSession(); // verifica que el usuario sea de tipo administrador
+$category = getCategory()->fetch(); // Solicita al controlador los datos de la categoría seleccionada
 require_once("../Includes/head.php");
 
 ?>
@@ -13,13 +13,13 @@ require_once("../Includes/head.php");
       <div class="card mt-5">
         <ul class="nav justify-content-end">
         <li class="nav-item">
-            <p class="nav-link active" name=welcome >Usuario: <?php echo $_SESSION['user']['name'] ?> </p>
+            <p class="nav-link active" name=welcome > Usuari@: <?php echo $_SESSION['user']['name'] ?> </p>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="AdminView.php">Administración</a>
+            <a class="nav-link active" href="AdminView.php"> Administración </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="../index.php">Logout</a>
+            <a class="nav-link active" href="../index.php"> Logout </a>
           </li>
         </ul>
         <div class="card-header">
@@ -28,7 +28,6 @@ require_once("../Includes/head.php");
           <h4 class="card-subtitle"> Modificar Datos: </h4>
         </div>
         <div class="card-body">
-          <!-- Formulario para modificar categorías -------------------------------------------------------------------------------->
           <form action="../Controller/CategoryController.php" method="POST">
             <input type="text" placeholder="Nombre de la Categoría" name="name" class="form-control mb-4" required="true" value= "<?php echo $category['name']?>">
             <input type="hidden" name="id" class="" required="false" value= "<?php echo $category['id']?>">

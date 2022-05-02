@@ -1,9 +1,8 @@
 <?php
 require_once("../Controller/ParentController.php");
 require_once("../Controller/UserController.php");
-adminSession();
-errorHandler();
-$user = getUser()->fetch();
+adminSession(); // veficica que el usuario sea administrador
+$user = getUser()->fetch(); // pide al controlador los datos del usuario para editarlos
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -12,17 +11,20 @@ require_once("../Includes/head.php");
             <div class="card mt-5">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <p class="nav-link active" name=welcome>Usuario: <?php echo $_SESSION['user']['name'] ?> </p>
+                        <p class="nav-link active" name=welcome> Usuari@: <?php echo $_SESSION['user']['name'] ?> </p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../View/AdminView.php">Administración</a>
+                        <a class="nav-link active" href="../View/AdminView.php"> Administración </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../View/RegisterView.php">Usuarios</a>
+                        <a class="nav-link active" href="../View/RegisterView.php"> Usuari@s </a>
                     </li>
                 </ul>
                 <div class="card-header">
-                    <h2 class="card-title text-center"> Editar Usuario </h2>
+                    <div>
+                        <?php echo errorHandler(); // Imprime un mensaje en caso de error ?> 
+                    </div>
+                    <h2 class="card-title text-center"> Editar Usuari@ </h2>
                     <br>
                     <h4 class="card-subtitle"> Modificar Información: </h4>
                 </div>

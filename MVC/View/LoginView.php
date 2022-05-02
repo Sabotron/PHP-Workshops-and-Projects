@@ -17,6 +17,9 @@ require_once("../Includes/head.php");
                         <a class="nav-link active" href="UserView.php"> Registrarse </a>
                     </li>
                 </ul>
+                <div>
+                    <?php echo errorHandler();  // función que retorna mensaje en caso de error ?> 
+                </div>
                 <div class="card-header">
                     <h2 class="card-tittle text-center"> Iniciar Sesión </h2>
                 </div>

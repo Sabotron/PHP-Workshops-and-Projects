@@ -3,7 +3,8 @@
 require_once("../Controller/AdminController.php");
 require_once("../Controller/ParentController.php");
 require_once("../Controller/CategoryController.php");
-adminSession();
+adminSession(); // verifica que el usuario sea administrador
+$categories = getCategories()->fetchAll(); // pide al controlador las categorías almacenadas en la base de datos
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -12,19 +13,22 @@ require_once("../Includes/head.php");
       <div class="card mt-5">
         <ul class="nav justify-content-end">
         <li class="nav-item">
-            <p class="nav-link active" name=welcome >Bienvenido <?php echo $_SESSION['user']['name'] ?> </p>
+            <p class="nav-link active" name=welcome > Bienvenid@ <?php echo $_SESSION['user']['name'] ?> </p>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="RegisterView.php">Usuarios</a>
+            <a class="nav-link active" href="RegisterView.php"> Usuari@s </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="../Controller/ParentController.php?logout">Logout</a>
+            <a class="nav-link active" href="../Controller/ParentController.php?logout"> Logout </a>
           </li>
         </ul>
         <div class="card-header">
-          <h2 class="card-title text-center">Administrador</h2>
+        <div>
+            <?php echo errorHandler() // imprime un mensaje en caso de error?>
+          </div>
+          <h2 class="card-title text-center"> Administración </h2>
           <br>
-          <h4 class="card-subtitle">Agregar Categoría</h4>
+          <h4 class="card-subtitle"> Agregar Categoría </h4>
         </div>
         <div class="card-body">
           <!-- Formulario para agregar categorías -------------------------------------------------------------------------------->
@@ -48,17 +52,13 @@ require_once("../Includes/head.php");
           <h2 class="text-center"> Categorías Agregadas </h2>
         </div>
         <div class="card-body">
-          <?php //  $db -> display_message(); 
-          ?>
           <table class="table table-bordered">
             <tr>
               <th> ID </th>
               <th> Categoría </th>
               <th> Acciones </th>
             </tr>
-            <?php // Recorre las fuentes creadas del usuarui y las muestra con botones de editar/eliminar.
-            
-            $categories = getCategories()->fetchAll(); // functions.php
+            <?php 
             foreach ($categories as $category) { ?>
               <tr>
                 <td><?php echo $category['id'] ?></td>

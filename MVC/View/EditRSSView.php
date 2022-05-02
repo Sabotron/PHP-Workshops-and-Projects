@@ -1,8 +1,9 @@
 <?php
 require("../Controller/ParentController.php");
 require("../Controller/DashboardController.php");
-clientSession();
-$rss = getSource()->fetch();
+clientSession(); // verifica que el usuario sea tipo cliente
+$rss = getSource()->fetch(); // pide al controlador los datos del rss seleccionado
+$categories = getCategories()->fetchAll(); // solicita todas las categorías de la base de datos
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -11,13 +12,13 @@ require_once("../Includes/head.php");
             <div class="card mt-5">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <p class="nav-link active" name=welcome>Usuario: <?php echo $_SESSION['user']['name'] ?> </p>
+                        <p class="nav-link active" name=welcome> Usuari@: <?php echo $_SESSION['user']['name'] ?> </p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="FeedView.php">Mis Feeds</a>
+                        <a class="nav-link active" href="FeedView.php"> Mis Feeds </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../index.php">Logout</a>
+                        <a class="nav-link active" href="../index.php"> Logout </a>
                     </li>
                 </ul>
                 <div class="card-header">
@@ -34,7 +35,7 @@ require_once("../Includes/head.php");
                         <h6> Categorías </h6>
                         <select class=" custom-select custom-select-sm" name="categoryId">
                             <?php
-                            $categories = getCategories()->fetchAll(); // functions.php
+                          
                             foreach ($categories as $category) {
                                 if ($category['id'] == $rss['categoryId']) //Compara el ID de la categoría a editar y la muestra por default en el "<select>"
                                 {

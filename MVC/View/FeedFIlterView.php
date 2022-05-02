@@ -1,11 +1,10 @@
 <?php
-//Muestra en la página los botones con las categorías seleccionadas por el usuario, para buscar noticias de interés.
 require_once("../Controller/ParentController.php");
 require_once("../Controller/FeedController.php");
 require_once("../Controller/CategoryController.php");
 clientSession(); // Verifica que el usuario sea tipo "cliente"
-$feeds = getFilteredFeeds()->fetchAll();
-$category = getFilteredCategory()->fetch();
+$feeds = getFilteredFeeds()->fetchAll(); // obtiene los feeds de acuerdo a la categoría seleccionada
+$category = getFilteredCategory()->fetch(); // devuelve el nombre de la categoría seleccionada
 require_once("../Includes/head.php");
 ?>
 <div class="container">
@@ -14,10 +13,10 @@ require_once("../Includes/head.php");
       <div class="card mt-5">
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <p class="nav-link active" name=welcome>Usuario: <?php echo $_SESSION['user']['name'] ?> </p>
+            <p class="nav-link active" name=welcome>Usuari@: <?php echo $_SESSION['user']['name'] ?> </p>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="DashboardView.php">Dashboard</a>
+            <a class="nav-link active" href="DashboardView.php"> Dashboard </a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="FeedView.php"> Mis Feeds </a>

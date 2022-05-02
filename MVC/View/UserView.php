@@ -1,8 +1,6 @@
 <?php
 require_once("../Controller/ParentController.php");
 require_once("../Controller/UserController.php");
-// Recibe información del usuario para crear una cuenta.
-errorHandler(); 
 require_once("../Includes/head.php");
 ?>
 
@@ -16,7 +14,10 @@ require_once("../Includes/head.php");
           </li>
         </ul>
         <div class="card-header">
-          <h2 class="card-title text-center"> Registrar Usuario </h2>
+          <div>
+            <?php echo errorHandler();  // función que retorna mensaje en caso de error ?> 
+          </div>
+          <h2 class="card-title text-center"> Registrar Usuari@ </h2>
           <br>
           <h4 class="card-subtitle"> Ingresar Información </h4>
         </div>
@@ -28,7 +29,7 @@ require_once("../Includes/head.php");
 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="1" checked="true">
-              <label class="form-check-label" for="inlineRadio1"> Usuario </label>
+              <label class="form-check-label" for="inlineRadio1"> Usuari@ </label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="2">
