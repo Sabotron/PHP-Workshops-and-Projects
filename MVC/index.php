@@ -1,3 +1,3 @@
 <?php
- header("Location: View/LoginView.php");
+ header("Location: View/LoginView.php"); // redirecciona siempre al Login
 ?>
