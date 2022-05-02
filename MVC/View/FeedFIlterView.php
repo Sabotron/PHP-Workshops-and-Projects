@@ -31,9 +31,9 @@ require_once("../Includes/head.php");
         <div class="card-body">
           <div class="row row-cols-1 row-cols-3 ">
             <?php
-            foreach ($feeds as $feed) {
+             foreach ($feeds as $feed) {
               if ($feed['img'] == "none") {
-                $img = "feed.png";
+                $img = "../Assets/img/feed.png";
               }
             ?>
               <div class="col mt-3">
