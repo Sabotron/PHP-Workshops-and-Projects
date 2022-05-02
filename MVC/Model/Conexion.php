@@ -7,7 +7,7 @@
         private $pwd = "";
         private $dbName = "project_1";
 
-        protected function connect()
+        protected function connect() // realiza la conexión con la base de datos
         {
             $dsn = "mysql:host=" . $this->host . "; dbname=" .$this->dbName.";";
             try {

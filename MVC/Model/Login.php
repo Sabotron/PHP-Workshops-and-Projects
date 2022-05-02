@@ -18,13 +18,13 @@ class Login extends Conexion
                 header('Location:../View/AdminView.php');
             }
         } else {
-            header('Location: ../View/LoginView.php');
             session_start();
             session_unset();
-            session_destroy();
+            session_destroy();            
+            header('Location: ../View/LoginView.php?error=user_not_found');
         }
         if (!$user) {
-            header('Location: ../View/LoginView.php');
+            header('Location: ../View/LoginView.php?error=user_not_found');
         }
     }
     }//End of class Loginmodel

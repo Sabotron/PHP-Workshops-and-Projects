@@ -50,26 +50,27 @@ class User extends Conexion
         if (!$result) {
             die("Errorsote");
         }
-
     }
 
-    function getUser($id) // Obtiene las fuentes asignadas al ID del usuario.
+    function getUser($id) // Obtiene datos del usuario por medio del id.
     {
         $sql = "SELECT * FROM user WHERE id = ? ";
         $result = $this->connect()->prepare($sql);
-        $result->execute([$id]);
-        return $result;
+        if ($result->execute([$id])) {
+            return $result;
+        }
     }
 
-    function getUsers() // Obtiene las fuentes asignadas al ID del usuario.
+    function getUsers() // Obtiene todos los usuarios de la base de datos.
     {
         $sql = "SELECT * FROM user";
         $result = $this->connect()->prepare($sql);
-        $result->execute();
-        return $result;
+        if ($result->execute()) {
+            return $result;
+        }
     }
 
-    function updateUser(
+    function updateUser( // modifica un usuario existente en la base de datos
         int $id,
         string $name,
         string $lastname,
@@ -81,20 +82,23 @@ class User extends Conexion
         int $postalCode,
         string $address1,
         string $address2
-    ) // Obtiene las fuentes asignadas al ID del usuario.
+    ) 
     {
         $sql = "UPDATE user SET name = ?, lastname = ?, telephone = ?, email = ?,
         password = ?, country = ?, city = ?, postalCode = ?, address1 = ?, address2 = ?  WHERE id = ?";
         $result = $this->connect()->prepare($sql);
-        $result->execute([
+        if ($result->execute([
             $name, $lastname, $telephone, $email, $password,
             $country, $city, $postalCode, $address1, $address2, $id
-        ]);
-        header("Location: ../View/RegisterView.php");
+        ])) {
+            header("Location: ../View/RegisterView.php");
+        } else {
+            header("Location: ../View/RegisterView.php?error=db_issue");
+        }
     }
 
 
-    function deleteUser(int $id)
+    function deleteUser(int $id) // elimina un usuario por medio del ID, también sus fuentes con los feeds
     {
 
         $sql1 = "DELETE FROM user WHERE id = ?";
@@ -109,7 +113,7 @@ class User extends Conexion
         header("Location: ../View/RegisterView.php");
     }
 
-    function mailUser(string $to, string $user, string $password)
+    function mailUser(string $to, string $user, string $password) // notifica por correo al usuario acerca de su nueva cuenta
     {
         $tittle = "Registro Exitoso";
         $message = "Estimad@ $user,  \n\nGracias por registrarse en nuestra plataforma.
@@ -124,4 +128,4 @@ class User extends Conexion
             //die();
         }
     }
-}
+} // end of class User

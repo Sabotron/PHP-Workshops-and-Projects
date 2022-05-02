@@ -5,36 +5,45 @@ class Category extends Conexion
 {
     private $strName;
 
-    function addCategory(string $name)
+    function addCategory(string $name) // agrega una categoría nueva a la base de datos
     {
         $sql = "INSERT INTO category(name) VALUES(?)";
         $this->strName = $name;
         $result= $this->connect()->prepare($sql);
         $result->execute([$name]);
-        if (!$result) {
-            die("Errorsote");
+        if ($result) {
+            header("Location: ../View/AdminView.php");
+        } 
+        else 
+        {
+            header("Location: ../View/AdminView.php?error=db_issue");
         }
-        header("Location: ../View/AdminView.php");
+       
     }
 
-    function getCategories() // Obtiene las fuentes asignadas al ID del usuario.
+    function getCategories() // Obtiene todas las categorías de la base de datos
     {
         $sql= "SELECT * FROM category ORDER BY name ASC"; 
         $result= $this->connect()->prepare($sql);
-        $result->execute();   
-        return $result;
+        if($result->execute())   
+        {
+            return $result;
+        }
     }
 
 
-    function getCategory(int $id) // Obtiene las fuentes asignadas al ID del usuario.
+    function getCategory(int $id) // Obtiene una categoría por medio del id
     {
         $sql= "SELECT * FROM category WHERE id = ?"; 
         $result= $this->connect()->prepare($sql);
-        $result->execute([$id]);   
-        return $result;
+        if($result->execute([$id]))
+        {
+            return $result;
+        }   
+       
     }
 
-    function getUserCategories(int $uid)// Obtiene las categorías asignadas al ID del usuario.
+    function getUserCategories(int $uid)// Obtiene las categorías asignadas al id del usuario.
     { 
         $sql = "SELECT DISTINCT c.id, c.name
                     FROM source s
@@ -42,8 +51,10 @@ class Category extends Conexion
                     ON s.categoryId = c.id 
                     WHERE s.userId = ? ";
         $result= $this->connect()->prepare($sql);
-        $result->execute([$uid]);
-        return $result;
+        if($result->execute([$uid]))
+        {
+            return $result;
+        }
     }
 
 
@@ -51,8 +62,15 @@ class Category extends Conexion
     {
         $sql= "UPDATE category SET name = ? WHERE id = ?"; 
         $result= $this->connect()->prepare($sql);
-        $result->execute([$name, $id]);   
-        header("Location: ../View/AdminView.php");
+        if($result->execute([$name, $id]))
+        {
+            header("Location: ../View/AdminView.php");
+        }         
+        else 
+        {
+            header("Location: ../View/AdminView.php?error=db_issue");
+        }
+   
     }
 
 
